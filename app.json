@@ -1,5 +1,6 @@
 {
   "expo": {
+    
     "name": "chatApp_v2",
     "slug": "chatApp_v2",
     "version": "1.0.0",
@@ -14,6 +15,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "@giphy/react-native-sdk"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -21,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.bahadirarda.chatApp_v2"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0d1fddd3-50e6-432b-ae3d-ec1485e3fceb"
+      }
     }
   }
 }
