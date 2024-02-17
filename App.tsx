@@ -11,6 +11,7 @@ import { FIREBASE_AUTH, FIREBASE_DB } from "./firebaseConfig";
 import { collection, query, onSnapshot, orderBy, doc } from 'firebase/firestore';
 import 'react-native-get-random-values';
 import { enableScreens } from 'react-native-screens';
+import { ChatProvider } from "./src/contexts/ChatContext";
 // import NotificationService from "./src/services/NotificationService"; // NotificationService'yi içe aktar
 
 enableScreens();
@@ -39,7 +40,7 @@ function App() {
         setInitialRoute("Home");
         listenForMessages(user.uid);
       } else {
-        setInitialRoute("Login");
+        setInitialRoute("Welcome");
       }
     });
 
@@ -68,6 +69,7 @@ function App() {
   }
 
   return (
+    <ChatProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName={initialRoute} screenOptions={{ headerShown: true }}>
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -77,6 +79,7 @@ function App() {
         <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </ChatProvider>
   );
 }
 
